@@ -1,5 +1,5 @@
 users = [
-    {username: 'Dan', email: 'sua@gmail.com'}
+    {username: 'Dan', email: 'su@gmail.com'}
 ]
 
 users.each do |u|
@@ -7,7 +7,7 @@ users.each do |u|
 end
 
 zines = [
-    {title: "Pursued", author: "Andrea M.", content: "many assorted words", user_id: 1}
+    {title: "Pursued", creator: "Andrea M.", content: "many interesting words", user_id: 1}
 ]
 
 zines.each do |u|
