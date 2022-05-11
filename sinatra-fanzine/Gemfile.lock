@@ -36,6 +36,9 @@ GEM
     database_cleaner-core (2.0.1)
     diff-lcs (1.5.0)
     eventmachine (1.2.7)
+    fabrication (2.28.0)
+    faker (2.20.0)
+      i18n (>= 1.8.11, < 2)
     i18n (1.10.0)
       concurrent-ruby (~> 1.0)
     matrix (0.4.2)
@@ -117,6 +120,8 @@ DEPENDENCIES
   bcrypt
   capybara
   database_cleaner
+  fabrication
+  faker
   pry
   rack-test
   rake
