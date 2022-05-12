@@ -1,0 +1,7 @@
+<title>Fanzine</title>
+<h4>User Zines</h4>
+<ul>
+  <% @user.zines.each do |zine| %>
+    <li><%= zine.title %></li>
+  <% end %>
+</ul>
