@@ -1,0 +1,12 @@
+<h1>Welcome</h1>
+
+<ul>
+  <% @zines.each do |zine| %>
+    <li><%= zine.title %></li>
+    <li><%= zine.creator %></li>
+    <li><%= zine.content %></li>
+    <br>
+  <% end %>
+</ul>
+
+<p><a href="/zines/new">Create a new Fanzine</a></p>

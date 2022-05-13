@@ -1,0 +1,27 @@
+<h1>Update Fanzine</h1>
+
+<form action="/zines/<%= @zine.id %>" method="POST">
+  <input id="hidden" type="hidden" name="_method" value="PATCH">
+  <br><br>
+
+  <input type="text" name="zine[title]" value="<%= @zine.title %>"
+  <br><br>
+  <li><%= @zine.title %></li>
+  <br>
+
+  <input type="text" name="zine[creator]" value="<%=@zine.creator%>"
+  <br><br>
+  <li><%= @zine.creator %></li>
+  <br>
+
+  <input type="text" name="zine[content]" value="<%= @zine.content %>"
+  <br><br>
+  <li><%= @zine.content %></li>
+  <br>
+
+  <input type="submit" value="Submit">
+
+</form>
+
+<a class="button" href="/zines/<%= @zine.id %>">Make no changes and return</a>
+
