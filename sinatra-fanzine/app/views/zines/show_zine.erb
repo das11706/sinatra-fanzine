@@ -1,7 +1,7 @@
 <title>Whirl Fanzine</title>
-<h3>Your Fanzines</h3>
+<h3>Your Fanzine</h3>
 
-  <h4><em><%=@zine.title%></em></h4>
+  <h4><em><a href="/zines/<%= @zine.id %>"><%=@zine.title%></a></em></h4>
   <li><em><%=@zine.creator%></em></li>
   <li><em><%=@zine.content%></em></li>
   <br>

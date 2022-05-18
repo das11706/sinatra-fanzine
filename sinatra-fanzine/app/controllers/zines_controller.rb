@@ -20,7 +20,7 @@ class ZinesController < ApplicationController
 
   get '/zines/:id' do
     if logged_in?
-      @zine = Zine.find_by(params[:title])
+      @zine = Zine.find_by_id(params[:id])
       erb :'/zines/show_zine'
     else
       redirect '/login'
@@ -38,11 +38,11 @@ class ZinesController < ApplicationController
 
   post '/zines' do
     if logged_in?
-      if params[:title] == "" || params[:creator] == "" || params[:content] == ""
+      if params[:title] == "" || params[:creator] == "" || params[:content] == "" && !@zine
         redirect '/zines/new'
       else
         @zine = current_user.zines.create(params[:zine])
-        redirect '/zines/:id'
+        redirect "/zines/show_zine"
       end
     end
   end
