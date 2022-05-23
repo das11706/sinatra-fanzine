@@ -51,7 +51,7 @@ class ZinesController < ApplicationController
     if logged_in?
       @zine = Zine.find_by(params[:title])
       @zine.update(params[:zine])
-      redirect "/zines/#{@zine.id}/edit"
+      redirect "/zines/#{@zine.id}"
     else
       redirect '/login'
     end
