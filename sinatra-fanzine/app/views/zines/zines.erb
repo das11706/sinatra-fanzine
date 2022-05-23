@@ -1,10 +1,9 @@
 <h1>Welcome</h1>
+<h3>Available Fanzines<h3>
 
 <ul>
   <% @zines.each do |zine| %>
     <li><a href="/zines/<%= zine.id %>"><%= zine.title %></a></li>
-    <li><%= zine.creator %></li>
-    <li><%= zine.content %></li>
     <br>
   <% end %>
 </ul>
