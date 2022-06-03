@@ -4,7 +4,8 @@
 
 <ul>
   <% @zines.each do |zine| %>
-    <h4><em><%=zine.title%></em></h4>
+
+    <li><a href="/zines/<%= zine.id %>"><%= zine.title %></a></li>
     <li><em><%=zine.creator%></em></li>
     <li><em><%=zine.content%></em></li>
     <br>

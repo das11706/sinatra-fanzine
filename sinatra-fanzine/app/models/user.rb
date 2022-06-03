@@ -4,4 +4,18 @@ class User < ActiveRecord::Base
   validates :password, presence: true
   has_secure_password
   has_many :zines
+
+
+  def slug
+    username.downcase.gsub(" ", "-")
+  end
+
+  def self.find_by_slug(slug)
+    User.all.find do |user|
+      if user.slug == slug
+        user
+      end
+    end
+  end
+  
 end
