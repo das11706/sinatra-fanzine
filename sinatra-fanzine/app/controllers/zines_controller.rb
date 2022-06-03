@@ -11,8 +11,8 @@ class ZinesController < ApplicationController
 
   get '/zines/new' do
     if logged_in?
-      users = User.all
-      erb :'/zines/new'
+      @users = User.all
+      erb :'/zines/new' 
     else
       redirect '/login'
     end
@@ -37,12 +37,14 @@ class ZinesController < ApplicationController
   end
 
   post '/zines' do
+    # puts params
     if logged_in?
       if params[:title] == "" || params[:creator] == "" || params[:content] == "" && !@zine
         redirect '/zines/new'
       else
         @zine = current_user.zines.create(params[:zine])
-        redirect "/zines/show_zine"
+        # @zine = Zine.find_by_id(params[:id])
+        redirect "/zines"
       end
     end
   end
@@ -62,5 +64,14 @@ class ZinesController < ApplicationController
     @zine.delete
     redirect to '/zines'
   end
+
+  # get '/zines/logout' do
+  #   if logged_in?
+  #     session.clear
+  #     redirect to "/login"
+  #   else
+  #     redirect to "/"
+  #   end
+  # end
 
 end
