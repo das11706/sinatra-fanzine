@@ -37,7 +37,7 @@ class ZinesController < ApplicationController
   end
 
   post '/zines' do
-    # puts params
+    puts params
     if logged_in?
       if params[:title] == "" || params[:creator] == "" || params[:content] == "" && !@zine
         redirect '/zines/new'
