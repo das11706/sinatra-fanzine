@@ -27,17 +27,8 @@ class ZinesController < ApplicationController
     end
   end
 
-  get '/zines/:id/edit' do
-    if logged_in?
-      @zine = Zine.find_by(params[:title])
-      erb :'/zines/edit_zine'
-    else
-      redirect '/login'
-    end
-  end
-
   post '/zines' do
-    puts params
+    # puts params
     if logged_in?
       if params[:title] == "" || params[:creator] == "" || params[:content] == "" && !@zine
         redirect '/zines/new'
@@ -49,11 +40,21 @@ class ZinesController < ApplicationController
     end
   end
 
+  get '/zines/:id/edit' do
+    if logged_in?
+      @zine = Zine.find_by_id(params[:id])
+      erb :'/zines/edit_zine'
+    else
+      redirect '/login'
+    end
+  end
+
+
   patch '/zines/:id' do
     if logged_in?
       @zine = Zine.find_by(params[:title])
       @zine.update(params[:zine])
-      redirect "/zines/#{@zine.id}"
+      redirect "/zines/#{@zine.id}/edit"
     else
       redirect '/login'
     end
