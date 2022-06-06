@@ -2,9 +2,14 @@
 <h4>User Zines</h4>
 <br>
 <ul>
-  <% @user.zines.each do |zine| %>
-    <li><%= zine.title %></li>
+  <% @users.each do |user| %>
+    <li><%= user.username %><li>
+    <br>
+    <% user.zines.each do |zine| %>
+      <li><a href="/zines/<%= zine.id %>"><%= zine.title %></li>
+      <% end %>
   <% end %>
 </ul>
+<br>
 
 <p><a href="/logout">Log Out</a></p>
