@@ -6,8 +6,6 @@
   <% @zines.each do |zine| %>
 
     <li><a href="/zines/<%= zine.id %>"><%= zine.title %></a></li>
-    <li><em><%=zine.creator%></em></li>
-    <li><em><%=zine.content%></em></li>
     <br>
   <% end %>
 </ul>
