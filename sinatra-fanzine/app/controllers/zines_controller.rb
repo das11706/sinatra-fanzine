@@ -61,9 +61,13 @@ class ZinesController < ApplicationController
   end
 
   delete '/zines/:id' do
-    @zine = Zine.find_by(params[:title])
-    @zine.delete
-    redirect to '/zines'
+    if logged_in?
+      @zine = Zine.find_by(params[:title])
+      @zine.delete
+      redirect to '/zines'
+    else
+      redirect '/login'
+    end
   end
 
   # get '/zines/logout' do
