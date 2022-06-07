@@ -50,7 +50,7 @@ class ZinesController < ApplicationController
       if @zine.user_id == current_user.id
       erb :'/zines/edit_zine'
       else 
-        flash[:message] = "Only creator can make changes."
+        flash[:message] = "Only creator can make changes"
         redirect '/zines'
       end
     else
@@ -74,9 +74,11 @@ class ZinesController < ApplicationController
       @zine = Zine.find_by_id(params[:id])
       if @zine.user_id == current_user.id
       @zine.delete
+      redirect '/zines'
+      else
+      flash[:message] = "Only creator can delete"
+      redirect to '/zines' 
       end
-      flash[:message] = "Only creator can delete."
-      redirect to '/zines'
     else
       redirect '/login'
     end
