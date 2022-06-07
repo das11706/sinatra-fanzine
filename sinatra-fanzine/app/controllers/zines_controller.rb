@@ -1,4 +1,8 @@
+require 'rack-flash'
+
 class ZinesController < ApplicationController
+  enable :sessions
+  use Rack::Flash
   
   get '/zines' do
     @zines = Zine.all
@@ -45,7 +49,8 @@ class ZinesController < ApplicationController
       @zine = Zine.find_by_id(params[:id])
       if @zine.user_id == current_user.id
       erb :'/zines/edit_zine'
-      else
+      else 
+        flash[:message] = "Only creator can make changes."
         redirect '/zines'
       end
     else
@@ -70,6 +75,7 @@ class ZinesController < ApplicationController
       if @zine.user_id == current_user.id
       @zine.delete
       end
+      flash[:message] = "Only creator can delete."
       redirect to '/zines'
     else
       redirect '/login'

@@ -3,7 +3,8 @@
 <br>
 <ul>
   <% @users.each do |user| %>
-    
+    <li><a href="/zines/<%= user.id %>"><%= user.username %></a><li>
+    <br>
     <% user.zines.each do |zine| %>
       <li><a href="/zines/<%= zine.id %>"><%= zine.title %></a></li>
       <% end %>
