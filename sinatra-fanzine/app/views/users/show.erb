@@ -3,10 +3,9 @@
 <br>
 <ul>
   <% @users.each do |user| %>
-    <li><%= user.username %><li>
-    <br>
+    
     <% user.zines.each do |zine| %>
-      <li><a href="/zines/<%= zine.id %>"><%= zine.title %></li>
+      <li><a href="/zines/<%= zine.id %>"><%= zine.title %></a></li>
       <% end %>
   <% end %>
 </ul>
