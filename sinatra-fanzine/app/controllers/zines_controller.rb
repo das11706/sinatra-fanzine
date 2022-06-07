@@ -43,7 +43,11 @@ class ZinesController < ApplicationController
   get '/zines/:id/edit' do
     if logged_in?
       @zine = Zine.find_by_id(params[:id])
+      if @zine.user_id == current_user.id
       erb :'/zines/edit_zine'
+      else
+        redirect '/zines'
+      end
     else
       redirect '/login'
     end
@@ -54,7 +58,7 @@ class ZinesController < ApplicationController
     if logged_in?
       @zine = Zine.find_by(params[:title])
       @zine.update(params[:zine])
-      redirect "/zines/#{@zine.id}/edit"
+      redirect "/zines/#{@zine.id}"
     else
       redirect '/login'
     end
