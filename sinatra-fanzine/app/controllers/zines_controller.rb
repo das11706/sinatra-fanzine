@@ -61,7 +61,7 @@ class ZinesController < ApplicationController
 
   patch '/zines/:id' do
     if logged_in?
-      @zine = Zine.find_by(params[:title])
+      @zine = Zine.find_by_id(params[:id])
       @zine.update(params[:zine])
       redirect "/zines/#{@zine.id}"
     else

@@ -5,7 +5,7 @@
   <% @users.each do |user| %>
    
     <% user.zines.each do |zine| %>
-      <li><a href="/zines/<%= zine.id %>"><% zine.title %></a></li>
+      <li><a href="/zines/<%= zine.id %>"><%= zine.title %></a></li>
       <% end %>
   <% end %>
 </ul>

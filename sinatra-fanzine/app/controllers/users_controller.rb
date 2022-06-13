@@ -62,8 +62,5 @@ class UsersController < ApplicationController
     @zines = Zine.all
     erb :'/users/create_user'
   end
-
-
   
-
 end
