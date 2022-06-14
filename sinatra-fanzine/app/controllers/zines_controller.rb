@@ -34,7 +34,7 @@ class ZinesController < ApplicationController
   post '/zines' do
     # puts params
     if logged_in?
-      if params[:title] == "" || params[:creator] == "" || params[:content] == "" && !@zine
+      if params[:title] == "" || params[:creator] == "" || params[:content] == "" 
         redirect '/zines/new'
       else
         @zine = current_user.zines.create(params[:zine])
