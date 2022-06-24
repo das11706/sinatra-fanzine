@@ -31,6 +31,18 @@ class ZinesController < ApplicationController
     end
   end
 
+  get '/myzines' do 
+    # @zines = Zine.all
+    # @users = User.all 
+    # @zines = current_user.zines
+    if logged_in?
+      @zines = current_user.zines
+      erb :'/zines/myzines'
+    else
+      redirect to '/login'
+    end    
+  end
+
   post '/zines' do
     # puts params
     if logged_in?
@@ -94,3 +106,7 @@ class ZinesController < ApplicationController
   # end
 
 end
+
+
+# write blog post about associations and finish myzines controller
+
