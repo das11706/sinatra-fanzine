@@ -32,9 +32,6 @@ class ZinesController < ApplicationController
   end
 
   get '/myzines' do 
-    # @zines = Zine.all
-    # @users = User.all 
-    # @zines = current_user.zines
     if logged_in?
       @zines = current_user.zines
       erb :'/zines/myzines'

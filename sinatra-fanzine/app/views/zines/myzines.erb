@@ -3,6 +3,7 @@
 
 <ul>
   <% @zines.each do |zine| %>
-    <li><%= zine.title %></li>
+    <li><a href="/zines/<%= zine.id %>"><%= zine.title %></a></li>
   <% end %>
 </ul> 
+
