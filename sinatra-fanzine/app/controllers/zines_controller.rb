@@ -93,17 +93,7 @@ class ZinesController < ApplicationController
     end
   end
 
-  # get '/zines/logout' do
-  #   if logged_in?
-  #     session.clear
-  #     redirect to "/login"
-  #   else
-  #     redirect to "/"
-  #   end
-  # end
-
 end
 
 
-# write blog post about associations and finish myzines controller
 
